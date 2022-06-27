@@ -7,12 +7,20 @@
 <div class="main">
   <div class="container">
 
-    <!-- Form goes here -->
-
+    <%= form_for(@new_post) do |f| %>
+      <div>
+        <%= f.label 'Comment:' %>
+        <%= f.text_area :comment %>
+      </div>
+      <div>
+      <%= f.submit 'Post.' %>
+      </div>
+    <% end %>
 
     <ul class="comments">
-      <li>Have you felt it?</li>
-      <li>There has been an awakening.</li>
+      <% @all_posts.each do |post| %>
+      <li><%= post.comment %></li>
+      <% end %>
     </ul>
 
   </div>
